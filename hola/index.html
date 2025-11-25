@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        button {
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: padding 0.2s, font-size 0.2s, transform 0.2s;
+        }
+
+        #btnSi {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+        }
+
+        #btnNo {
+            background-color: #f44336;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+        }
+
+        .mensaje {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #444;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>¿Me perdonas? 🥺</h1>
+        <div class="buttons">
+            <button id="btnSi">Sí 💚</button>
+            <button id="btnNo">No 💔</button>
+        </div>
+        <div class="mensaje" id="mensaje"></div>
+    </div>
+
+    <script>
+        const btnSi = document.getElementById("btnSi");
+        const btnNo = document.getElementById("btnNo");
+        const mensaje = document.getElementById("mensaje");
+
+        let paddingSi = 12;
+        let fontSizeSi = 1.2;
+
+        let paddingNo = 12;
+        let fontSizeNo = 1.2;
+
+        btnNo.addEventListener("click", () => {
+            paddingSi += 4;
+            fontSizeSi += 0.1;
+
+            btnSi.style.padding = `${paddingSi}px ${paddingSi * 2}px`;
+            btnSi.style.fontSize = `${fontSizeSi}rem`;
+
+            paddingNo -= 2;
+            fontSizeNo -= 0.05;
+
+            if (paddingNo < 4) paddingNo = 4;
+            if (fontSizeNo < 0.3) fontSizeNo = 0.3;
+
+            btnNo.style.padding = `${paddingNo}px ${paddingNo * 2}px`;
+            btnNo.style.fontSize = `${fontSizeNo}rem`;
+
+            mensaje.textContent = "No puedes decir que no 😏";
+        });
+
+        btnSi.addEventListener("click", () => {
+            // 🚀 Redirigir a otra página
+            window.location.href = "gracias.html";
+        });
+    </script>
+</body>
+</html>
+
